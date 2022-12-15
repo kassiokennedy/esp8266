@@ -89,5 +89,5 @@ void loop()
  
    
   //Wait 300 ms, after that, start new measurement and display.
-  delay(300);
+  delay(500);
 }

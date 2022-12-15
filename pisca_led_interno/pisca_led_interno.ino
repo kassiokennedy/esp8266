@@ -6,7 +6,7 @@ void setup() {
 
 void loop() {
   digitalWrite(ESP12_LED, LOW);   
-  delay(20);                      
+  delay(100);                      
   digitalWrite(ESP12_LED, HIGH);  
-  delay(20);                      
+  delay(100);                      
 }
