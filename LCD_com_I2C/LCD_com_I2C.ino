@@ -1,20 +1,31 @@
-// https://blogmasterwalkershop.com.br/embarcados/nodemcu/nodemcu-utilizando-com-display-lcd-16x2
-#include <Wire.h>  //INCLUSÃO DE BIBLIOTECA
-#include <LiquidCrystal_I2C.h> //INCLUSÃO DE BIBLIOTECA
- 
-LiquidCrystal_I2C lcd(0x3F, 16, 2); //FUNÇÃO DO TIPO "LiquidCrystal_I2C"
- 
-void setup()
-{
-  lcd.init();   // INICIALIZA O DISPLAY LCD
-  lcd.backlight(); // HABILITA O BACKLIGHT (LUZ DE FUNDO) 
-  lcd.setCursor(0, 0); //SETA A POSIÇÃO EM QUE O CURSOR INCIALIZA(LINHA 1)
-  lcd.print("MASTERWALKERSHOP"); //ESCREVE O TEXTO NA PRIMEIRA LINHA DO DISPLAY LCD
-  lcd.setCursor(0, 1); //SETA A POSIÇÃO EM QUE O CURSOR RECEBE O TEXTO A SER MOSTRADO(LINHA 2)      
-  lcd.print("----NODEMCU----"); //ESCREVE O TEXTO NA SEGUNDA LINHA DO DISPLAY LCD
+#include <LiquidCrystal_I2C.h>
+
+// set the LCD number of columns and rows
+int lcdColumns = 16;
+int lcdRows = 2;
+
+// set LCD address, number of columns and rows
+// if you don't know your display address, run an I2C scanner sketch
+LiquidCrystal_I2C lcd(0x27, lcdColumns, lcdRows);  
+
+void setup(){
+  // initialize LCD
+  lcd.init();
+  // turn on LCD backlight                      
+  lcd.backlight();
 }
- 
-void loop()
-{
-  //PROGRAMAÇÃO DE CÓDIGO DO VOID LOOP - PRA ESSE EXEMPLO PODE FICAR SEM NADA
+
+void loop(){
+  // set cursor to first column, first row
+  lcd.setCursor(0, 0);
+  // print message
+  lcd.print("Hello, World!");
+  delay(1000);
+  // clears the display to print new message
+  lcd.clear();
+  // set cursor to first column, second row
+  lcd.setCursor(0,1);
+  lcd.print("Hello, World!");
+  delay(1000);
+  lcd.clear(); 
 }
