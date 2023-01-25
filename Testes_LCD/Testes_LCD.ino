@@ -101,6 +101,7 @@ byte block[8] =
   B11111,
   B11111
 };
+// ------------------------------------------------------------------------
 void setup()
 {
   lcd.begin(16,2);                      // initialize the lcd
@@ -126,6 +127,7 @@ void printNumber(int val){
      printDigits(val/10,col);
      printDigits(val%10,col+4);
 }
+// ------------------------------------------------------------------------
 void loop()
 {
    lcd.clear();
@@ -134,6 +136,7 @@ void loop()
    if( counter >= 100) counter= 0;
    delay(500);
 }
+// ------------------------------------------------------------------------
 void custom0(int x){
   lcd.setCursor(x,0);
   lcd.write((byte)0); 
